@@ -7,6 +7,7 @@
   import { defaultProviders } from "@connect2ic/core/providers"
   import { ConnectButton, ConnectDialog, Connect2ICProvider } from "@connect2ic/svelte"
   import "@connect2ic/core/style.css"
+  import "./app.postcss"
   /*
    * Import canister definitions like this:
    */
@@ -31,11 +32,11 @@
 
 <Connect2ICProvider client={client}>
   <div class="App">
-    <div class="auth-section">
+    <div class="auth-section ">
       <ConnectButton />
     </div>
     <ConnectDialog />
-    <header class="App-header">
+    <header class="App-header bg-neutral-200">
       <img src={logo} class="App-logo" alt="logo" />
       <p class="slogan">
         Svelte+TypeScript Template
