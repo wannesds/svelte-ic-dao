@@ -18,6 +18,7 @@
   import Counter from "./components/Counter.svelte"
   import Profile from "./components/Profile.svelte"
   import Transfer from "./components/Transfer.svelte"
+  import WalletMenu from "./components/WalletMenu.svelte"
 
   const client = createClient({
     canisters: {
@@ -32,10 +33,14 @@
 
 <Connect2ICProvider client={client}>
   <div class="App">
-    <div class="auth-section ">
-      <div class=fancy-border>
+    <div class=" flex gap-2 justify-end p-2">
+
+      <div class=fancy-border> 
+        <!-- border should be added somehow thru app.postcss -->
         <ConnectButton/>
       </div>
+      <!-- only show this on connected -->
+      <WalletMenu/>
       
     </div>
     <ConnectDialog />
