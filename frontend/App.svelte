@@ -11,7 +11,7 @@
   /*
    * Import canister definitions like this:
    */
-  import * as counter from "../.dfx/local/canisters/counter"
+  import * as dao from "../.dfx/local/canisters/dao"
   /*
    * Some examples to get you started
    */
@@ -21,7 +21,7 @@
 
   const client = createClient({
     canisters: {
-      counter,
+      dao,
     },
     providers: defaultProviders,
     globalProviderConfig: {
@@ -33,10 +33,13 @@
 <Connect2ICProvider client={client}>
   <div class="App">
     <div class="auth-section ">
-      <ConnectButton />
+      <div class=fancy-border>
+        <ConnectButton/>
+      </div>
+      
     </div>
     <ConnectDialog />
-    <header class="App-header bg-neutral-200">
+    <!-- <header class="App-header bg-neutral-200">
       <img src={logo} class="App-logo" alt="logo" />
       <p class="slogan">
         Svelte+TypeScript Template
@@ -46,15 +49,16 @@
 
     <p class="examples-title">
       Examples
-    </p>
+    </p>-->
     <div class="examples">
       <Counter />
       <Profile />
       <Transfer />
-    </div>
-  </div>
+    </div> 
+  </div> 
 </Connect2ICProvider>
 
+<!-- 
 <style global>
     body {
         margin: 0;
@@ -170,4 +174,4 @@
             opacity: 0;
         }
     }
-</style>
+</style> -->

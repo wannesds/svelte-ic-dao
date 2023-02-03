@@ -2,3 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-m;
+  }
+}
+
+@layer components {
+  /* for custom css on thirdparty components */
+  .connect-button { /* from c2ic , could only work this way*/
+    font-size: 18px;
+    background: rgb(20,20,20,0.8); 
+    color: #f1f2f2;
+    border: none;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+  .connect-button:hover {
+    transform:none;
+    background: rgb(40,40,40,0.4);
+  }
+
+  
+	.fancy-border {
+    @apply bg-gradient-to-br from-teal-400 via-cyan-400 to-emerald-400 font-semibold p-0.5 w-fit md:mx-0 rounded-full;
+	}
+}
+
+@layer utilities {
+  /* for adding custom css util that tailwind doesnt include */
+}
+
+
