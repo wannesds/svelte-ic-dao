@@ -13,16 +13,26 @@
   // change into dropdown menu from allkinds
 </script>
 
-<div class="flex flex-col justify-end text-neutral-300">
+
+{#if $wallet}
   <div class="fancy-border ">
-	<div class="rounded-full self-end bg-grey-200 w-10 connect-button" on:click={toggleVissible} on:keydown={toggleVissible}>
-		{#if !visible}
-			=
-		{:else}
-			X
-		{/if}
-	</div>
+	<div class="rounded-full self-end bg-grey-200 connect-button" on:click={toggleVissible} on:keydown={toggleVissible}>
+		
+    
+
+
+      {#if !visible}
+        {$wallet.principal}
+      {:else}
+        <!-- close -->
+        {$wallet.principal}
+      {/if}
 </div>
+
+    
+	
+
+
 
 	{#if visible}
     <div  
@@ -30,7 +40,7 @@
       on:mouseleave={toggleVissible}
     >
 
-    <div class="bg-dark-m/80 rounded-md ">
+    <div class="bg-dark-m/80 rounded-md p-2 text-white-m">
       <!-- assets may take some time to load, display this (tailwind has something for that) -->
       {#if $wallet}
         <p>Wallet address: <span style="font-size: 0.7em">{$wallet.principal}</span></p>
@@ -51,6 +61,7 @@
           </tbody>
         </table>
       {:else}
+      <!-- could remove bcs doesnt show without wallet anyway -->
         <p class="example-disabled">Connect with a wallet to access this example</p>
       {/if}
     </div>
@@ -59,5 +70,6 @@
 	{/if}
 
 </div>
+{/if}
 
 
