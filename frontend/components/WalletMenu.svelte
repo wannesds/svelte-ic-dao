@@ -15,19 +15,15 @@
 
 
 {#if $wallet}
-  <div class="fancy-border ">
+<div class="fancy-border ">
 	<div class="rounded-full self-end bg-grey-200 connect-button" on:click={toggleVissible} on:keydown={toggleVissible}>
-		
-    
-
-
-      {#if !visible}
+      <!-- {#if !visible}
         {$wallet.principal}
       {:else}
-        <!-- close -->
         {$wallet.principal}
-      {/if}
-</div>
+      {/if} -->
+      {$wallet.principal.split(/-/)[0] + " ..."}
+  </div>
 
     
 	
@@ -36,11 +32,11 @@
 
 	{#if visible}
     <div  
-      class="top-14 m-2 fancy-border rounded-md fixed right-0"
+      class="top-15 m-5 fancy-border rounded-md fixed right-0"
       on:mouseleave={toggleVissible}
     >
 
-    <div class="bg-dark-m/80 rounded-md p-2 text-white-m">
+    <div class="bg-dark-900/80 rounded-md p-2 text-white-m">
       <!-- assets may take some time to load, display this (tailwind has something for that) -->
       {#if $wallet}
         <p>Wallet address: <span style="font-size: 0.7em">{$wallet.principal}</span></p>

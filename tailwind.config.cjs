@@ -4,9 +4,13 @@ const config = {
   theme: {
     
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
 			colors: {
-        'dark-m' : '#111312',
-        'white-m' : '#f1f2f2'
+          'dark-800' : '#081110',
+          'dark-900' : '#040d0c',
+        // 'white-m' : '#f1f2f2'
 			},
 			fontFamily: {
 				// 'noto-sans': ['Noto-sans', 'sans-serif'],

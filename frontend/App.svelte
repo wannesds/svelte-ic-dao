@@ -32,8 +32,14 @@
 </script>
 
 <Connect2ICProvider client={client}>
-  <div class="App">
-    <div class=" flex gap-2 justify-end p-2">
+  <div class="text-neutral-200 ">
+    <div class="flex gap-2 p-5 justify-space-between">
+      <p class="text-center py-1 text-3xl text-gradient">Defora</p>
+     
+
+      <div class="grow">
+      <!-- middle, fill space -->
+      </div>
 
       <div class=fancy-border> 
         <!-- border should be added somehow thru app.postcss -->
@@ -44,22 +50,23 @@
       
     </div>
     <ConnectDialog />
-    <!-- <header class="App-header bg-neutral-200">
-      <img src={logo} class="App-logo" alt="logo" />
-      <p class="slogan">
-        Svelte+TypeScript Template
-      </p>
-      <p class="twitter">by <a href="https://twitter.com/miamaruq">@miamaruq</a></p>
+    
+    <header class="flex flex-col align-items-center justify-content-center text-center p-5">
+      <p class="m-10 h-auto text-5xl">DAO Polling/Voting title</p>
     </header>
 
+    <div class="bg-neutral-900 h-56">
+
+    </div>
+<!-- 
     <p class="examples-title">
       Examples
     </p>-->
-    <div class="examples">
+    <!-- <div class="examples">
       <Counter />
       <Profile />
       <Transfer />
-    </div> 
+    </div>  -->
   </div> 
 </Connect2ICProvider>
 
