@@ -9,7 +9,8 @@ const config = {
       },
 			colors: {
           'black-800' : '#081110',
-          'black-900' : '#040d0c'
+          'black-900' : '#040d0c',
+
 			},
 			fontFamily: {
 				// 'noto-sans': ['Noto-sans', 'sans-serif'],

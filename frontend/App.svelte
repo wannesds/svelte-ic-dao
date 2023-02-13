@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from "./assets/dfinity.svg"
+  import home from "./assets/home.svg"
 
   import { createClient } from "@connect2ic/core"
   import { defaultProviders } from "@connect2ic/core/providers"
@@ -27,14 +27,24 @@
       dev: import.meta.env.DEV,
     },
   })
+
+  let innerW = 0;
+
+  let NavVisible: boolean = false;
+
+  function toggleNavVisible() {
+    NavVisible = !NavVisible;
+  }
+
 </script>
 
+<svelte:window bind:innerWidth={innerW}/>
 <Connect2ICProvider client={client}>
   <div class="text-neutral-200 flex flex-col min-h-screen">
     <header class="flex gap-2 p-5 justify-space-between sticky top-0">
-      <p class="text-center py-1 text-3xl text-gradient">Defora</p>
+      <!-- <img src={home} alt="navigation icon" width="50px"/> -->
+      <p class="text-center py-1 text-3xl text-gradient" on:focus on:mouseover={toggleNavVisible}>Defora</p>
      
-
       <div class="grow">
       <!-- middle, fill space -->
       </div>
@@ -52,13 +62,15 @@
     </div> -->
 
     <!-- <div class="bg-black-900 h-56">some bar</div> -->
+
     <div class="flex grow">
-      <Router>
-        <nav class="flex flex-col p-5">
-          <!-- TODO : HIDE NAVBAR ON SMALLER SCREENS -->
+      <Router> 
+        {#if NavVisible || innerW > 500}
+        <nav class="flex flex-col p-5" on:mouseleave={toggleNavVisible}>
           <Link to="/">Home</Link>
           <Link to="about">About</Link>
         </nav>
+        {/if}
 
         <content class="grow">
           <Route path="/" component={Home} />
