@@ -1,24 +1,23 @@
 <script lang="ts">
   import logo from "./assets/dfinity.svg"
-  /*
-   * Connect2ic provides essential utilities for IC app development
-   */
+
   import { createClient } from "@connect2ic/core"
   import { defaultProviders } from "@connect2ic/core/providers"
   import { ConnectButton, ConnectDialog, Connect2ICProvider } from "@connect2ic/svelte"
   import "@connect2ic/core/style.css"
   import "./app.postcss"
-  /*
-   * Import canister definitions like this:
-   */
+
   import * as dao from "../.dfx/local/canisters/dao"
-  /*
-   * Some examples to get you started
-   */
+
+  import { Router, Link, Route } from "svelte-navigator";
+  import Home from "./routes/Home.svelte";
+	import About from "./routes/About.svelte";
+
   import Counter from "./components/Counter.svelte"
   import Profile from "./components/Profile.svelte"
   import Transfer from "./components/Transfer.svelte"
   import WalletMenu from "./components/WalletMenu.svelte"
+  import Nav from "./components/Nav.svelte"
 
   const client = createClient({
     canisters: {
@@ -32,8 +31,8 @@
 </script>
 
 <Connect2ICProvider client={client}>
-  <div class="text-neutral-200 ">
-    <div class="flex gap-2 p-5 justify-space-between">
+  <div class="text-neutral-200 flex flex-col min-h-screen">
+    <header class="flex gap-2 p-5 justify-space-between sticky top-0">
       <p class="text-center py-1 text-3xl text-gradient">Defora</p>
      
 
@@ -45,19 +44,39 @@
         <!-- border should be added somehow thru app.postcss -->
         <ConnectButton/>
       </div>
-      <!-- only show this on connected -->
       <WalletMenu/>
-      
-    </div>
-    <ConnectDialog />
-    
-    <header class="flex flex-col align-items-center justify-content-center text-center p-5">
-      <p class="m-10 h-auto text-5xl">DAO Polling/Voting title</p>
     </header>
+    <!-- <ConnectDialog /> -->
+    
+    <!-- <div class="flex flex-col align-items-center justify-content-center text-center p-2">
+      <p class="h-auto text-5xl">DAO Polling/Voting title</p>
+    </div> -->
 
-    <div class="bg-neutral-900 h-56">
+    <!-- <div class="bg-black-900 h-56">some bar</div> -->
+    <Router>
+      <Nav>
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+        <!-- navigation is a seperate component as it will involve more complexity -->
+      </Nav>
 
-    </div>
+      <content class="grow">
+        <Route path="/">
+          <Home />
+        </Route>
+
+        <Route path="about" component={About} />
+      </content>
+    </Router>
+
+    <footer class="">
+      <p>This is the footer</p>
+    </footer>
+    
+    
+  
+
+
 <!-- 
     <p class="examples-title">
       Examples

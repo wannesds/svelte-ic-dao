@@ -8,9 +8,8 @@ const config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
 			colors: {
-          'dark-800' : '#081110',
-          'dark-900' : '#040d0c',
-        // 'white-m' : '#f1f2f2'
+          'black-800' : '#081110',
+          'black-900' : '#040d0c'
 			},
 			fontFamily: {
 				// 'noto-sans': ['Noto-sans', 'sans-serif'],
