@@ -17,7 +17,6 @@
   import Profile from "./components/Profile.svelte"
   import Transfer from "./components/Transfer.svelte"
   import WalletMenu from "./components/WalletMenu.svelte"
-  import Nav from "./components/Nav.svelte"
 
   const client = createClient({
     canisters: {
@@ -53,21 +52,20 @@
     </div> -->
 
     <!-- <div class="bg-black-900 h-56">some bar</div> -->
-    <Router>
-      <Nav>
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-        <!-- navigation is a seperate component as it will involve more complexity -->
-      </Nav>
+    <div class="flex grow">
+      <Router>
+        <nav class="flex flex-col p-5">
+          <!-- TODO : HIDE NAVBAR ON SMALLER SCREENS -->
+          <Link to="/">Home</Link>
+          <Link to="about">About</Link>
+        </nav>
 
-      <content class="grow">
-        <Route path="/">
-          <Home />
-        </Route>
-
-        <Route path="about" component={About} />
-      </content>
-    </Router>
+        <content class="grow">
+          <Route path="/" component={Home} />
+          <Route path="about" component={About} />
+        </content>
+      </Router>
+    </div>
 
     <footer class="">
       <p>This is the footer</p>

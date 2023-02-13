@@ -36,7 +36,7 @@
       on:mouseleave={toggleVissible}
     >
 
-    <div class="bg-black-900/80 rounded-md p-2 text-white-m">
+    <div class="bg-black-900/70 rounded-md p-2 text-white-m">
       <!-- assets may take some time to load, display this (tailwind has something for that) -->
       {#if $wallet}
         <p>Wallet address: <span style="font-size: 0.7em">{$wallet.principal}</span></p>
