@@ -8,8 +8,10 @@ const config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
 			colors: {
-          'black-800' : '#081110',
-          'black-900' : '#040d0c',
+          'dark-600' : '#183a30',
+          'dark-700' : '#0f1e1d',
+          'dark-800' : '#081110',
+          'dark-900' : '#040d0c',
 
 			},
 			fontFamily: {

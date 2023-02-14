@@ -1,5 +1,8 @@
 <script lang="ts">
+  import bars3 from "./assets/bars-3.svg"
   import home from "./assets/home.svg"
+  import create from "./assets/create.svg"
+  import polls from "./assets/polls.svg"
 
   import { createClient } from "@connect2ic/core"
   import { defaultProviders } from "@connect2ic/core/providers"
@@ -11,7 +14,8 @@
 
   import { Router, Link, Route } from "svelte-navigator";
   import Home from "./routes/Home.svelte";
-	import About from "./routes/About.svelte";
+	import Create from "./routes/Create.svelte";
+  import Polls from "./routes/Polls.svelte";
 
   import Counter from "./components/Counter.svelte"
   import Profile from "./components/Profile.svelte"
@@ -40,10 +44,14 @@
 
 <svelte:window bind:innerWidth={innerW}/>
 <Connect2ICProvider client={client}>
-  <div class="text-neutral-200 flex flex-col min-h-screen">
-    <header class="flex gap-2 p-5 justify-space-between sticky top-0">
-      <!-- <img src={home} alt="navigation icon" width="50px"/> -->
-      <p class="text-center py-1 text-3xl text-gradient" on:focus on:mouseover={toggleNavVisible}>Defora</p>
+  <div class="text-neutral-200 flex flex-col min-h-screen px-2 lg:px-6">
+    <header class="flex gap-2 justify-space-between sticky top-0 py-2">
+      <img 
+        src={bars3} alt="navigation icon"
+        class="sm:hidden hover:bg-dark-700 rounded-full w-10 h-10 p-1 my-1"
+        on:focus on:mouseover={toggleNavVisible} on:keydown on:click={toggleNavVisible}
+      />
+      <p class="text-center py-1 text-3xl text-gradient">Defora</p>
      
       <div class="grow">
       <!-- middle, fill space -->
@@ -63,18 +71,31 @@
 
     <!-- <div class="bg-black-900 h-56">some bar</div> -->
 
-    <div class="flex grow">
+    <div class="flex grow gap-4">
       <Router> 
-        {#if NavVisible || innerW > 500}
-        <nav class="flex flex-col p-5" on:mouseleave={toggleNavVisible}>
-          <Link to="/">Home</Link>
-          <Link to="about">About</Link>
-        </nav>
+        {#if NavVisible || innerW > 640}
+          <nav class="flex flex-col text-teal-200 -mx-1" on:mouseleave={toggleNavVisible}>
+            <Link class="nav-link" to="/">
+              <img src={home} alt="home icon" class="nav-link-svg"/>
+              Home
+            </Link>
+            
+            <Link class="nav-link" to="polls">
+              <img src={polls} alt="polls icon" class="nav-link-svg"/>
+              Polls
+            </Link>
+            
+            <Link class="nav-link" to="create">
+              <img src={create} alt="create icon" class="nav-link-svg"/>
+              Create
+            </Link>
+          </nav>
         {/if}
 
-        <content class="grow">
+        <content class="grow bg-dark-700/50 rounded-lg p-2">
           <Route path="/" component={Home} />
-          <Route path="about" component={About} />
+          <Route path="create" component={Create} />
+          <Route path="polls" component={Polls} />
         </content>
       </Router>
     </div>

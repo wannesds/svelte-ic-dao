@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply bg-black-800;
+    @apply bg-dark-800;
   }
 }
 
@@ -34,6 +34,12 @@
 	}
   .text-gradient {
     @apply bg-gradient-to-br from-cyan-200 via-teal-400 to-emerald-600 bg-clip-text text-transparent;
+  }
+  .nav-link {
+    @apply flex hover:bg-dark-700 rounded-lg p-1 gap-x-1 lg:p-3 lg:gap-1;
+  }
+  .nav-link-svg {
+    @apply rounded-full w-7 h-7 p-0.5 -my-0.5 ;
   }
 }
 
