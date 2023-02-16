@@ -32,6 +32,7 @@
     },
   })
 
+
   let innerW = 0;
 
   // const location = useLocation();
@@ -43,37 +44,35 @@
 
   let NavVisible: boolean = false;
 
-  function toggleNavVisible() {
+  const toggleNavVisible = () => {
     NavVisible = !NavVisible;
   }
-
-  
 
 </script>
 
 <svelte:window bind:innerWidth={innerW}/>
 <Connect2ICProvider client={client}>
-  <div class="flex flex-col min-h-screen px-2 lg:px-6">
+  <div class="flex flex-col min-h-screen py-1 px-3 lg:px-6">
     <header class="flex gap-2 justify-space-between sticky top-0 py-2">
       <img 
         src={bars3} alt="navigation icon"
-        class="sm:hidden hover:bg-dark-700 rounded-full w-10 h-10 p-1 my-1"
+        class="sm:hidden hover:bg-dark-700 rounded-full w-10 h-10 p-1"
         on:focus on:mouseover={toggleNavVisible} on:keydown on:click={toggleNavVisible}
       />
-      <p class="text-center py-1 text-3xl text-gradient">Defora</p>
+      <p class="text-center text-3xl text-gradient">Defora</p>
      
       <div class="grow">
       <!-- middle, fill space -->
       
       </div>
 
-      <div class=fancy-border> 
+      <div class="fancy-border"> 
         <!-- border should be added somehow thru app.postcss -->
         <ConnectButton/>
       </div>
       <WalletMenu/>
     </header>
-    <!-- <ConnectDialog /> -->
+    <ConnectDialog />
     
     <!-- <div class="flex flex-col align-items-center justify-content-center text-center p-2">
       <p class="h-auto text-5xl">DAO Polling/Voting title</p>
@@ -81,8 +80,9 @@
 
     <!-- <div class="bg-black-900 h-56">some bar</div> -->
 
-    <div class="flex grow gap-1 lg:gap-3">
-      <Router> 
+    <Router>
+    <div class="flex grow gap-1 lg:gap-5">
+      
         {#if NavVisible || innerW > 640}
           <nav class="flex flex-col text-teal-100 lg:-mx-2" on:mouseleave={toggleNavVisible}>
             <Link class="nav-link" to="/">
@@ -102,16 +102,17 @@
           </nav>
         {/if}
 
-        <content class="grow rounded-lg p-2 text">
+        <content class="grow rounded-lg pt-2 text">
           <Route path="/" component={Home} />
           <Route path="create" component={Create} />
           <Route path="polls" component={Polls} />
         </content>
-      </Router>
+      
     </div>
+    </Router>
 
-    <footer class="h-fit p-2 m-auto text-dark-700">
-      <p>Made by Wannes, inspired and guided by Motoko Bootcamp 2023</p>
+    <footer class="h-fit m-auto text-dark-600/60">
+      <p>Made by Wannes, Inspired and guided by Motoko Bootcamp 2023</p>
     </footer>
     
     

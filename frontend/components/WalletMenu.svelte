@@ -6,7 +6,7 @@
 
   let visible: boolean = false;
 
-  function toggleVissible() {
+  const toggleVissible = () => {
 		visible = !visible;
 	}
 
