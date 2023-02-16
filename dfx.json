@@ -4,7 +4,11 @@
       "main": "canisters/dao/main.mo",
       "type": "motoko"
     },
-    "assets": {
+    "webpage": {
+      "main": "canisters/webpage/main.mo",
+      "type": "motoko" 
+    },
+    "interface": {
       "dependencies": [
         "dao"
       ],

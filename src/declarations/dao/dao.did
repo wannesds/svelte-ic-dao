@@ -1,4 +1,43 @@
+type VotersList = 
+ opt record {
+       principal;
+       List;
+     };
+type Status = 
+ variant {
+   Passed;
+   Rejected;
+   Waiting;
+ };
+type Proposal = 
+ record {
+   id: nat;
+   noVotes: nat;
+   payload: text;
+   status: Status;
+   userPrincipal: principal;
+   voters: VotersList;
+   yesVotes: nat;
+ };
+type List = 
+ opt record {
+       principal;
+       List;
+     };
+type Balance = nat;
 service : {
-  getValue: () -> (nat) query;
-  increment: () -> ();
+  get_all_proposals: () -> (vec Proposal) query;
+  get_balance: (principal) -> (Balance);
+  get_proposal: (nat) -> (opt Proposal) query;
+  submit_proposal: (text) -> (variant {
+                                Err: text;
+                                Ok: Proposal;
+                              });
+  vote: (nat, bool) -> (variant {
+                          Err: text;
+                          Ok: record {
+                                nat;
+                                nat;
+                              };
+                        });
 }
