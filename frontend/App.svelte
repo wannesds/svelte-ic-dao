@@ -12,7 +12,7 @@
 
   import * as dao from "../.dfx/local/canisters/dao"
 
-  import { Router, Link, Route } from "svelte-navigator";
+  import { Router, Link, Route, useLocation } from "svelte-navigator";
   import Home from "./routes/Home.svelte";
 	import Create from "./routes/Create.svelte";
   import Polls from "./routes/Polls.svelte";
@@ -34,17 +34,26 @@
 
   let innerW = 0;
 
+  // const location = useLocation();
+  // let url: any;
+
+  // $:{
+  //   url = $location.pathname;
+  // }
+
   let NavVisible: boolean = false;
 
   function toggleNavVisible() {
     NavVisible = !NavVisible;
   }
 
+  
+
 </script>
 
 <svelte:window bind:innerWidth={innerW}/>
 <Connect2ICProvider client={client}>
-  <div class="text-neutral-200 flex flex-col min-h-screen px-2 lg:px-6">
+  <div class="flex flex-col min-h-screen px-2 lg:px-6">
     <header class="flex gap-2 justify-space-between sticky top-0 py-2">
       <img 
         src={bars3} alt="navigation icon"
@@ -55,6 +64,7 @@
      
       <div class="grow">
       <!-- middle, fill space -->
+      
       </div>
 
       <div class=fancy-border> 
@@ -71,10 +81,10 @@
 
     <!-- <div class="bg-black-900 h-56">some bar</div> -->
 
-    <div class="flex grow gap-4">
+    <div class="flex grow gap-1 lg:gap-3">
       <Router> 
         {#if NavVisible || innerW > 640}
-          <nav class="flex flex-col text-teal-200 -mx-1" on:mouseleave={toggleNavVisible}>
+          <nav class="flex flex-col text-teal-100 lg:-mx-2" on:mouseleave={toggleNavVisible}>
             <Link class="nav-link" to="/">
               <img src={home} alt="home icon" class="nav-link-svg"/>
               Home
@@ -92,7 +102,7 @@
           </nav>
         {/if}
 
-        <content class="grow bg-dark-700/50 rounded-lg p-2">
+        <content class="grow rounded-lg p-2 text">
           <Route path="/" component={Home} />
           <Route path="create" component={Create} />
           <Route path="polls" component={Polls} />
@@ -100,8 +110,8 @@
       </Router>
     </div>
 
-    <footer class="">
-      <p>This is the footer</p>
+    <footer class="h-fit p-2 m-auto text-dark-700">
+      <p>Made by Wannes, inspired and guided by Motoko Bootcamp 2023</p>
     </footer>
     
     

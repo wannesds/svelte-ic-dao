@@ -13,6 +13,9 @@ const config = {
           'dark-800' : '#081110',
           'dark-900' : '#040d0c',
 
+          'white-700' : '#bed0ca',
+          'white-800' : '#e0f1ec',
+
 			},
 			fontFamily: {
 				// 'noto-sans': ['Noto-sans', 'sans-serif'],

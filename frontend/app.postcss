@@ -5,23 +5,23 @@
 
 @layer base {
   body {
-    @apply bg-dark-800;
+    @apply bg-dark-800 text-teal-100;
   }
 }
 
 @layer components {
   /* for custom css on thirdparty components */
   .connect-button { /* copied & edited from c2ic module */
-    font-size: 18px;
-    background: rgb(20,20,20,0.7); 
-    color: white;
+    font-size: 16px;
+    background: rgb(20,20,20,0.8); 
+    color: #e0f1ec;
     border: none;
     padding: 5px 10px;
     display: flex;
     align-items: center;
     border-radius: 40px;
     cursor: pointer;
-    height: 40px;
+    height: 35px;
   }
   .connect-button:hover {
     transform: none;
@@ -36,7 +36,7 @@
     @apply bg-gradient-to-br from-cyan-200 via-teal-400 to-emerald-600 bg-clip-text text-transparent;
   }
   .nav-link {
-    @apply flex hover:bg-dark-700 rounded-lg p-1 gap-x-1 lg:p-3 lg:gap-1;
+    @apply flex hover:bg-dark-700 rounded-lg p-1 gap-x-1 lg:p-2 lg:gap-1;
   }
   .nav-link-svg {
     @apply rounded-full w-7 h-7 p-0.5 -my-0.5 ;
