@@ -45,7 +45,7 @@
     <div class="m-auto">
       {#await promise}
         <p>Accessing the matrix...</p>
-      {:then proposal}
+      {:then object}
         <p>Poll created : "{msg}"</p>
       {:catch error}
         <p class="text-red-500">{error.message}</p>

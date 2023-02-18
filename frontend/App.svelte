@@ -21,6 +21,7 @@
   import Profile from "./components/Profile.svelte"
   import Transfer from "./components/Transfer.svelte"
   import WalletMenu from "./components/WalletMenu.svelte"
+  //import { connect } from "./components/Connect.ts"
 
   const client = createClient({
     canisters: {
@@ -31,6 +32,7 @@
       dev: import.meta.env.DEV,
     },
   })
+
 
 
   let innerW = 0;
